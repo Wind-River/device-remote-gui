@@ -1,0 +1,13 @@
+version: "3"
+services:
+  wrl-miw:
+    image: wrl-mi/website
+    container_name: wrl-miw
+    ports:
+      - 4480:80
+  wrl-mis:
+    image: wrl-mi/simulator
+    container_name: wrl-mis
+    ports:
+      - 4444:4444
+   
