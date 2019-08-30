@@ -21,17 +21,15 @@ endif
 
 RM = $(Q)rm -f
 
-REL ?= WRLINUX_10_18_LTS_RCPL0005
+REL ?= WRLINUX_10_18_LTS_RCPL0009
 
-MACHINES += qemux86-64
+MACHINES += genericx86-64
 MACHINES += qemuarm64
 
 DISTRO=wrlinux
 
 #IMAGES += wrlinux-image-glibc-std
 #IMAGES += wrlinux-image-glibc-small
-#CONTAINERS += app-container-image-mi-website
-#CONTAINERS += app-container-image-mi-simulator
 CONTAINERS += wr-app-container-mi-website
 CONTAINERS += wr-app-container-mi-simulator
 
@@ -40,7 +38,7 @@ JS_REL = ee071255af5ec985ccd4d8d2c2aee2804c077c67
 LAYERS += $(TOP)/build/layers/meta-javascripts
 
 MI_URL = https://gitlab.com/saxofon/meta-marine-instruments.git
-MI_REL = acc36a603c71c47be6beacf861c41710d3e5bd14
+MI_REL = a7a15811860c414b137fd741325633ef8fcd6d5f
 LAYERS += $(TOP)/build/layers/meta-marine-instruments
 
 WRLS_OPTS += --dl-layers
@@ -83,10 +81,10 @@ build/build: build $(LAYERS)
 	fi
 
 images: build/build
-	$(foreach MACHINE,$(MACHINES),$(foreach IMAGE,$(IMAGES),$(call bitbake,$(MACHINE),$(IMAGE));))
+	$(foreach MACHINE,$(MACHINES),$(call bitbake,$(MACHINE),$(IMAGES));)
 
 containers: build/build
-	$(foreach MACHINE,$(MACHINES),$(foreach CONTAINER,$(CONTAINERS),$(call bitbake,$(MACHINE),$(CONTAINER));))
+	$(foreach MACHINE,$(MACHINES),$(call bitbake,$(MACHINE),$(CONTAINERS));)
 
 clean:
 	$(RM) -r build/build

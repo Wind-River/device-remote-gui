@@ -5,9 +5,9 @@ bitbake.help:
 	$(Q)echo -e "bbs                       : start a bitbake shell to testdrive things manually"
 
 define bitbake
+	export MACHINE=$(1) ; \
 	if [ -d build ]; then \
 		cd build ; \
-		export MACHINE=$(1) ; \
 		source ./environment-setup-x86_64-wrlinuxsdk-linux ; \
 		source ./oe-init-build-env ; \
 	fi ; \
@@ -15,9 +15,9 @@ define bitbake
 endef
 
 define bitbake-task
+	export MACHINE=$(1) ; \
 	if [ -d build ]; then \
 		cd build ; \
-		export MACHINE=$(1) ; \
 		source ./environment-setup-x86_64-wrlinuxsdk-linux ; \
 		source ./oe-init-build-env ; \
 	fi ; \
