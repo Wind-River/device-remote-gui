@@ -11,10 +11,10 @@ SDK_FILE=$(TOP)/build/build/tmp-glibc/deploy/sdk/*-sdk.sh
 SDK_ENV=$(TOP)/build/sdk/environment-setup-*
 
 sdk: build/build
-	$(call bitbake-task, $(IMAGE), populate_sdk)
+	$(call bitbake-task,$(MACHINE),$(IMAGE),populate_sdk)
 
 esdk: build/build
-	$(call bitbake-task, $(IMAGE), populate_sdk_ext)
+	$(call bitbake-task,$(MACHINE),$(IMAGE),populate_sdk_ext)
 
 sdk-install:
 	$(SDK_FILE) -y -d $(TOP)/build/sdk
