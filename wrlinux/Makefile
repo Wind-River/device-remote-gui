@@ -24,11 +24,11 @@ RM = $(Q)rm -f
 REL ?= WRLINUX_10_18_LTS_RCPL0009
 
 MACHINES += genericx86-64
-MACHINES += qemuarm64
+#MACHINES += qemuarm64
 
 DISTRO=wrlinux
 
-#IMAGES += wrlinux-image-glibc-std
+#IMAGE += wrlinux-image-glibc-std
 #IMAGES += wrlinux-image-glibc-small
 CONTAINERS += wr-app-container-mi-website
 CONTAINERS += wr-app-container-mi-simulator
