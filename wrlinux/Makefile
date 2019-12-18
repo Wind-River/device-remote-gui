@@ -21,7 +21,7 @@ endif
 
 RM = $(Q)rm -f
 
-REL ?= WRLINUX_10_18_LTS_RCPL0009
+REL ?= WRLINUX_10_19_LTS_RCPL0002
 
 MACHINES += genericx86-64
 #MACHINES += qemuarm64
@@ -30,15 +30,15 @@ DISTRO=wrlinux
 
 #IMAGE += wrlinux-image-glibc-std
 #IMAGES += wrlinux-image-glibc-small
-CONTAINERS += wr-app-container-mi-website
-CONTAINERS += wr-app-container-mi-simulator
+CONTAINERS += wr-app-container-image-mi-website
+CONTAINERS += wr-app-container-image-mi-simulator
 
 JS_URL = https://gitlab.com/saxofon/meta-javascripts.git
-JS_REL = ee071255af5ec985ccd4d8d2c2aee2804c077c67
+JS_REL = 4d77bffa9b7dcb9bd9f98201d48a1d065d89e41c
 LAYERS += $(TOP)/build/layers/meta-javascripts
 
 MI_URL = https://gitlab.com/saxofon/meta-marine-instruments.git
-MI_REL = a7a15811860c414b137fd741325633ef8fcd6d5f
+MI_REL = fb44af8b963fa13df81c4d5302405508e55ec91f
 LAYERS += $(TOP)/build/layers/meta-marine-instruments
 
 WRLS_OPTS += --dl-layers

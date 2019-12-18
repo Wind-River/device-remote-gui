@@ -1,5 +1,5 @@
-MIS_URL=$(TOP)/build/build/tmp-glibc/deploy/images/genericx86-64/wr-app-container-mi-simulator-genericx86-64.tar.bz2
-MIW_URL=$(TOP)/build/build/tmp-glibc/deploy/images/genericx86-64/wr-app-container-mi-website-genericx86-64.tar.bz2
+MIS_URL=$(TOP)/build/build/tmp-glibc/deploy/images/genericx86-64/wr-app-container-image-mi-simulator-genericx86-64.tar.bz2
+MIW_URL=$(TOP)/build/build/tmp-glibc/deploy/images/genericx86-64/wr-app-container-image-mi-website-genericx86-64.tar.bz2
 
 help:: example-help
 
