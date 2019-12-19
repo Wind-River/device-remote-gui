@@ -1,7 +1,7 @@
 version: "3"
 services:
   wrl-miw:
-    image: wrl-mi/website
+    image: wrl-mi/dashboard
     container_name: wrl-miw
     ports:
       - 4480:80

@@ -26,19 +26,26 @@ REL ?= WRLINUX_10_19_LTS_RCPL0002
 MACHINES += genericx86-64
 #MACHINES += qemuarm64
 
-DISTRO=wrlinux
+DISTRO=wrlinux-overc
 
-#IMAGE += wrlinux-image-glibc-std
-#IMAGES += wrlinux-image-glibc-small
-CONTAINERS += wr-app-container-image-mi-website
-CONTAINERS += wr-app-container-image-mi-simulator
+IMAGES += cube-essential
+IMAGES += cube-builder
+IMAGES += cube-builder-initramfs
+
+CONTAINERS += cube-dom0
+CONTAINERS += cube-desktop
+CONTAINERS += cube-k8s-node
+CONTAINERS += cube-server
+CONTAINERS += cube-vrf
+CONTAINERS += oci-dashboard
+CONTAINERS += oci-simulator
 
 JS_URL = https://gitlab.com/saxofon/meta-javascripts.git
-JS_REL = 4d77bffa9b7dcb9bd9f98201d48a1d065d89e41c
+JS_REL = 8c4c8e28c6625b64fbcf507364848170c302fcf1
 LAYERS += $(TOP)/build/layers/meta-javascripts
 
 MI_URL = https://gitlab.com/saxofon/meta-marine-instruments.git
-MI_REL = fb44af8b963fa13df81c4d5302405508e55ec91f
+MI_REL = 9a0e46897c3598bbae1605033ed58b1f1a09a3a6
 LAYERS += $(TOP)/build/layers/meta-marine-instruments
 
 WRLS_OPTS += --dl-layers

@@ -1,8 +1,8 @@
 # Example platform setup for building containers with wrlinux
 
 This example builds two containers
-* a website containing GUI
-* sensordata that feeds the GUI (named simulator) with data updates
+* a dashboard containing GUI (via webserver, html5, javascripts, websockets, protobuf etc)
+* sensordata that feeds the dashboard (named simulator as it is simulated sensor data) with data updates
 
 ## configuring
 * update location of where a wrlinux mirror is installed in your host
@@ -38,7 +38,7 @@ https://gitlab.com/saxofon/meta-marine-instruments.git
 That have these containers :
 
 ```
-[phallsma@arn-build3 wrl-containers]$ cat build/layers/meta-marine-instruments/recipes-base/images/wr-app-container-mi-website.bb 
+[phallsma@arn-build3 wrl-containers]$ cat build/layers/meta-marine-instruments/recipes-base/images/oci-dashboard.bb 
 SUMMARY = "An application container for marine instruments webserver"
 DESCRIPTION = "An application container for marine instruments webserver"
 HOMEPAGE = "https://gitlab.com/saxofon/meta-marine-instruments.git"
@@ -50,7 +50,7 @@ IMAGE_LINGUAS = ""
 
 require wr-app-container.inc
 
-IMAGE_INSTALL += "mi-website"
+IMAGE_INSTALL += "mi-dashboard"
 [phallsma@arn-build3 wrl-containers]$ cat build/layers/meta-marine-instruments/recipes-base/images/wr-app-container-mi-simulator.bb 
 SUMMARY = "An application container for marine instruments webserver"
 DESCRIPTION = "An application container for marine instruments webserver"
@@ -70,8 +70,8 @@ IMAGE_INSTALL += "mi-simulator"
 When build is done, we get these container tarballs :
 ```
 [phallsma@arn-build3 wrl-containers]$ ls build/build/tmp-glibc/deploy/images/qemux86-64/wr-app-container-mi-*bz2
-build/build/tmp-glibc/deploy/images/qemux86-64/wr-app-container-mi-simulator-qemux86-64.tar.bz2
-build/build/tmp-glibc/deploy/images/qemux86-64/wr-app-container-mi-website-qemux86-64.tar.bz2
+build/build/tmp-glibc/deploy/images/qemux86-64/oci-mi-simulator-qemux86-64.tar.bz2
+build/build/tmp-glibc/deploy/images/qemux86-64/oci-dashboard-qemux86-64.tar.bz2
 [phallsma@arn-build3 wrl-containers]$ 
 ```
 
@@ -82,7 +82,7 @@ There is an example implemented via docker, thats import/run/stop/clean like :
 ### import example images to docker storage
 ```
 [phallsma@arn-build3 wrl-containers]$ make example-import-images 
-cat /opt/phallsma/wrl-containers/build/build/tmp-glibc/deploy/images/qemux86-64/wr-app-container-mi-website-qemux86-64.tar.bz2 | docker import -c 'ENTRYPOINT ["/usr/sbin/lighttpd", "-f", "/etc/lighttpd.conf", "-D"]' - wrl-mi/website
+cat /opt/phallsma/wrl-containers/build/build/tmp-glibc/deploy/images/qemux86-64/wr-app-container-mi-dashboard-qemux86-64.tar.bz2 | docker import -c 'ENTRYPOINT ["/usr/sbin/lighttpd", "-f", "/etc/lighttpd.conf", "-D"]' - wrl-mi/dashboard
 sha256:c7235d6278a2c171bcb215f79f73180ccc39d2063fabea716bce70c7ca822038
 cat /opt/phallsma/wrl-containers/build/build/tmp-glibc/deploy/images/qemux86-64/wr-app-container-mi-simulator-qemux86-64.tar.bz2 | docker import -c 'ENTRYPOINT ["/usr/bin/mi-simulator"]' - wrl-mi/simulator
 sha256:e144e3b5b89fec9cf2246306e2dd68ae026f30de52f2505f653525a259b83d14

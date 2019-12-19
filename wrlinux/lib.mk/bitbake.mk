@@ -26,6 +26,7 @@ endef
 
 bbs: build/build
 	$(Q)cd build ; \
+	export MACHINE=$(word 1,$(MACHINES)); \
 	source ./environment-setup-x86_64-wrlinuxsdk-linux ; \
 	source ./oe-init-build-env ; \
 	bash || true
