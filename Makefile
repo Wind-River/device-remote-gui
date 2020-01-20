@@ -1,3 +1,6 @@
+# Copyright (c) 2020 Wind River Systems, Inc.
+# SPDX-License-Identifier: BSD-3-Clause
+
 # Default settings
 HOSTNAME 	:= $(shell hostname)
 USER		:= $(shell whoami)
@@ -41,11 +44,11 @@ CONTAINERS += oci-dashboard
 CONTAINERS += oci-simulator
 
 JS_URL = https://gitlab.com/saxofon/meta-javascripts.git
-JS_REL = 8c4c8e28c6625b64fbcf507364848170c302fcf1
+JS_REL = cdefe2f790c1254a2d2c1141e020042f82e05270
 LAYERS += $(TOP)/build/layers/meta-javascripts
 
 MI_URL = https://gitlab.com/saxofon/meta-marine-instruments.git
-MI_REL = 9a0e46897c3598bbae1605033ed58b1f1a09a3a6
+MI_REL = 41a1ed2bcd88146ab1799377148df9464fd8d547
 LAYERS += $(TOP)/build/layers/meta-marine-instruments
 
 WRLS_OPTS += --dl-layers

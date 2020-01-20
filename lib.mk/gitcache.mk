@@ -1,3 +1,6 @@
+# Copyright (c) 2020 Wind River Systems, Inc.
+# SPDX-License-Identifier: BSD-3-Clause
+
 # Use this function to cache a git repo in yocto download style
 # Used in top Makefile to cache repos used before yocto build
 # process take over.
