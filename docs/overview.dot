@@ -1,0 +1,38 @@
+/*
+ * Copyright (c) 2020 Wind River Systems, Inc.
+ * SPDX-License-Identifier: BSD-3-Clause
+ */
+
+digraph Overview {
+  style = filled;
+  color = lightgrey;
+  layout = dot;
+
+  subgraph cluster_simulator {
+    label = "Simulator";
+    style = filled;
+    color = lightblue;
+    node [style=filled,color=black, fillcolor=lightyellow];
+    saildata [shape=box];
+    "saildata simulator";
+    "saildata simulator"->saildata;
+    saildata->"saildata simulator";
+    saildata->"saildata rxtx";
+    "saildata rxtx"->saildata;
+  }
+
+  subgraph cluster_dashboard {
+    label = "Dashboard";
+    style = filled;
+    color = lightblue;
+    node [style=filled, color=black, fillcolor=lightyellow];
+    javascripts->webserver;
+    dashboard->webserver;
+  }
+  
+  "GUI client(s)" [style=filled, color=black, fillcolor=lightyellow, shape=box];
+  
+  webserver->"GUI client(s)";
+  "saildata rxtx"->"GUI client(s)";
+  "GUI client(s)"->"saildata rxtx";
+}
