@@ -43,12 +43,14 @@ CONTAINERS += cube-vrf
 CONTAINERS += oci-dashboard
 CONTAINERS += oci-simulator
 
+LAYERS += $(TOP)/layers/meta-project-addons
+
 JS_URL = https://gitlab.com/saxofon/meta-javascripts.git
 JS_REL = cdefe2f790c1254a2d2c1141e020042f82e05270
 LAYERS += $(TOP)/build/layers/meta-javascripts
 
 MI_URL = https://gitlab.com/saxofon/meta-marine-instruments.git
-MI_REL = 41a1ed2bcd88146ab1799377148df9464fd8d547
+MI_REL = ae56a4d359b45c1384cdeca09bf4e4902ef04ef2
 LAYERS += $(TOP)/build/layers/meta-marine-instruments
 
 WRLS_OPTS += --dl-layers
