@@ -26,22 +26,31 @@ RM = $(Q)rm -f
 
 REL ?= WRLINUX_10_19_LTS_RCPL0006
 
-MACHINES += genericx86-64
+#MACHINES += genericx86-64
+MACHINES += qemux86-64
 #MACHINES += qemuarm64
 
-DISTRO=wrlinux-overc
+USE_CONTAINERS = 0
 
-IMAGES += cube-essential
-IMAGES += cube-builder
-IMAGES += cube-builder-initramfs
+ifeq ($(USE_CONTAINERS),1)
+	DISTRO = wrlinux-overc
 
-CONTAINERS += cube-dom0
-CONTAINERS += cube-desktop
-CONTAINERS += cube-k8s-node
-CONTAINERS += cube-server
-CONTAINERS += cube-vrf
-CONTAINERS += oci-dashboard
-CONTAINERS += oci-simulator
+	IMAGES += cube-essential
+	IMAGES += cube-builder
+	IMAGES += cube-builder-initramfs
+
+	CONTAINERS += cube-dom0
+	CONTAINERS += cube-desktop
+	CONTAINERS += cube-k8s-node
+	CONTAINERS += cube-server
+	CONTAINERS += cube-vrf
+	CONTAINERS += oci-dashboard
+	CONTAINERS += oci-simulator
+else
+	DISTRO = wrlinux-graphics
+
+	IMAGES += wrlinux-image-std-sato
+endif
 
 LAYERS += $(TOP)/layers/meta-project-addons
 
