@@ -26,6 +26,7 @@ RM = $(Q)rm -f
 
 REL ?= WRLINUX_10_19_LTS_RCPL0006
 
+MACHINES += bcm-2xxx-rpi4
 #MACHINES += genericx86-64
 MACHINES += qemux86-64
 #MACHINES += qemuarm64
