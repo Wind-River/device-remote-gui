@@ -28,7 +28,7 @@ REL ?= WRLINUX_10_19_LTS_RCPL0006
 
 MACHINES += bcm-2xxx-rpi4
 #MACHINES += genericx86-64
-MACHINES += qemux86-64
+#MACHINES += qemux86-64
 #MACHINES += qemuarm64
 
 USE_CONTAINERS = 0
@@ -103,10 +103,18 @@ build/build: build $(LAYERS)
 	fi
 
 images: build/build
+ifneq ($(IMAGES),)
 	$(foreach MACHINE,$(MACHINES),$(call bitbake,$(MACHINE),$(IMAGES));)
+else
+	:
+endif
 
 containers: build/build
+ifneq ($(CONTAINERS),)
 	$(foreach MACHINE,$(MACHINES),$(call bitbake,$(MACHINE),$(CONTAINERS));)
+else
+	:
+endif
 
 clean:
 	$(RM) -r build/build
