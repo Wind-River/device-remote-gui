@@ -36,11 +36,11 @@ IMAGES += wrlinux-image-std
 LAYERS += $(TOP)/layers/meta-project-addons
 
 JS_URL = https://gitlab.com/saxofon/meta-javascripts.git
-JS_REL = cdefe2f790c1254a2d2c1141e020042f82e05270
+JS_REL = de040ba385e0f6096694e0ea09a39d11c310a2ed
 LAYERS += $(TOP)/build/layers/meta-javascripts
 
 MI_URL = https://gitlab.com/saxofon/meta-marine-instruments.git
-MI_REL = ae56a4d359b45c1384cdeca09bf4e4902ef04ef2
+MI_REL = 7018d56172a2b8becf6ffe5c9d6ec09223e9d1e0
 LAYERS += $(TOP)/build/layers/meta-marine-instruments
 
 WRLS_OPTS += --dl-layers
