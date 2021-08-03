@@ -1,4 +1,4 @@
-# Copyright (c) 2020 Wind River Systems, Inc.
+# Copyright (c) 2021 Wind River Systems, Inc.
 # SPDX-License-Identifier: BSD-3-Clause
 
 # Use this function to cache a git repo in yocto download style
@@ -15,9 +15,12 @@ define gitcache
 		git -C $(2) remote add upstream $(1) ; \
 	else \
 		mkdir -p $(DOWNLOADS_CACHE)/git2 ; \
-		git -C $(DOWNLOADS_CACHE)/git2 clone --bare $(1) $$gitbase ; \
+		git -C $(DOWNLOADS_CACHE)/git2 clone --mirror $(1) $$gitbase ; \
 		git clone $(DOWNLOADS_CACHE)/git2/$$gitbase $(2) ; \
 		git -C $(2) remote add upstream $(1) ; \
-	fi
+	fi ; \
+	chmod -R -f g+w $(2)
 endef
 
+distclean::
+	$(RM) -r $(DOWNLOADS_CACHE)
