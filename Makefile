@@ -24,24 +24,14 @@ endif
 
 RM = $(Q)rm -f
 
-REL ?= WRLINUX_10_19_LTS_RCPL0006
+REL ?= WRLINUX_10_21_LTS_RCPL0001
 
 MACHINES += genericx86-64
 #MACHINES += qemuarm64
 
-DISTRO=wrlinux-overc
+DISTRO=wrlinux
 
-IMAGES += cube-essential
-IMAGES += cube-builder
-IMAGES += cube-builder-initramfs
-
-CONTAINERS += cube-dom0
-CONTAINERS += cube-desktop
-CONTAINERS += cube-k8s-node
-CONTAINERS += cube-server
-CONTAINERS += cube-vrf
-CONTAINERS += oci-dashboard
-CONTAINERS += oci-simulator
+IMAGES += wrlinux-image-std
 
 LAYERS += $(TOP)/layers/meta-project-addons
 
@@ -101,5 +91,5 @@ containers: build/build
 clean:
 	$(RM) -r build/build
 
-distclean:
+distclean::
 	$(RM) -r build
