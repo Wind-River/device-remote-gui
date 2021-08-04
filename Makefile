@@ -26,7 +26,7 @@ RM = $(Q)rm -f
 
 REL ?= WRLINUX_10_21_LTS_RCPL0001
 
-MACHINES += genericx86-64
+MACHINES += intel-x86-64
 #MACHINES += qemuarm64
 
 DISTRO=wrlinux
@@ -43,6 +43,8 @@ MI_URL = https://gitlab.com/saxofon/meta-marine-instruments.git
 MI_REL = 7018d56172a2b8becf6ffe5c9d6ec09223e9d1e0
 LAYERS += $(TOP)/build/layers/meta-marine-instruments
 
+WRLS_OPTS += --layers meta-chromium
+WRLS_OPTS += --templates feature/chromium-web-kiosk
 WRLS_OPTS += --dl-layers
 WRLS_OPTS += --no-recommend
 WRLS_OPTS += --accept-eula yes

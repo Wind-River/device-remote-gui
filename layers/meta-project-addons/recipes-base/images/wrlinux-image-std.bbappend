@@ -3,3 +3,6 @@
 
 IMAGE_INSTALL += "mi-dashboard"
 IMAGE_INSTALL += "mi-simulator"
+
+IMAGE_FSTYPES += "ext4"
+IMAGE_FSTYPES += "wic"
