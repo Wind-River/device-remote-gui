@@ -1,0 +1,3 @@
+# pack-refs with: peeled fully-peeled sorted 
+5889d1fda48a16d90ee4410a2612486d10f59c4c refs/heads/master
+3aba56ac0184eeb1a8aa5cdda7bcb3252a556e02 refs/heads/topic/sensors
