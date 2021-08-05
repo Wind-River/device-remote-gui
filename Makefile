@@ -36,11 +36,11 @@ IMAGES += wrlinux-image-std
 LAYERS += $(TOP)/layers/meta-project-addons
 
 JS_URL = https://gitlab.com/saxofon/meta-javascripts.git
-JS_REL = de040ba385e0f6096694e0ea09a39d11c310a2ed
+JS_REL = 9a0c97e935a8bc4e17a62baa7f619ff5aa295742
 LAYERS += $(TOP)/build/layers/meta-javascripts
 
 MI_URL = https://gitlab.com/saxofon/meta-marine-instruments.git
-MI_REL = 7018d56172a2b8becf6ffe5c9d6ec09223e9d1e0
+MI_REL = 074b4f5b919155df2920bdcfb129ab5be6fd5a3d
 LAYERS += $(TOP)/build/layers/meta-marine-instruments
 
 WRLS_OPTS += --layers meta-chromium
@@ -81,7 +81,6 @@ build/build: build $(LAYERS)
 		source ./oe-init-build-env ; \
 		bitbake-layers add-layer -F $(LAYERS) ; \
 		sed -i /^MACHINE/d conf/local.conf ; \
-		sed -i /^BB_NO_NETWORK/d conf/local.conf ; \
 	fi
 
 images: build/build
