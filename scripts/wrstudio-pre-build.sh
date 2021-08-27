@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# Copyright (c) 2020 Wind River Systems, Inc.
+# SPDX-License-Identifier: BSD-3-Clause
+
 # This script is referenced in WRStudio wrlinux build parameters as PRE_BUILD
 # ${GITLAB_URL}phallsma/device-remote-gui/raw/master/scripts/wrstudio-pre-build.sh		
 # (where ENV could be like training.wrstudio.cloud or similar)
