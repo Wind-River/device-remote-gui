@@ -109,7 +109,7 @@ All files in this repository is BSD-3-Clause licensed unless otherwised stated.
 ### Attribution
 This example platform makes use of :
 
-* WRLinux LTS 19 from Windriver
+* WRLinux LTS 21 from Windriver
 https://www.windriver.com/products/linux
 
 * meta-javascripts - https://gitlab.com/saxofon/meta-javascripts
