@@ -1,0 +1,80 @@
+{
+  "architecture": "x86-64",
+  "cpu": "core-i7",
+  "date": "2021-03-24T00:00:00.000Z",
+  "launch_spec": {
+    "container_url": "device.registry.gvr.wrstudio.cloud/jwessel-qemu/qemu-alpine:latest",
+    "dynamic": [
+      {
+        "default": "qemu-system-x86_64 -cpu Nehalem -m 2048 -drive file=$VT_FILE_SYSTEM,if=virtio,format=raw -device virtio-rng-pci -nographic -vnc :6 -serial mon:stdio -display none -monitor telnet:127.0.0.1:4000,server,nowait -nic user,id=n0,hostfwd=tcp:127.0.0.1:6022-:22,hostfwd=tcp:127.0.0.1:6080-:80 -usb -usbdevice tablet -enable-kvm -vga vmware",
+        "description": "qemu command for target",
+        "from_key": "command",
+        "name": "VT_QEMU_COMMAND",
+        "optional": false
+      },
+      {
+        "default": "wrlinux-image-std-intel-x86-64.hddimg",
+        "description": "Ext4 root filesystem",
+        "from_key": "vt_file_system",
+        "name": "VT_FILE_SYSTEM",
+        "optional": false
+      },
+      {
+        "default": "workspace-wrlinux/builds/141",
+        "description": "the artifact path",
+        "from_key": "artifact_path",
+        "name": "VT_ARTIFACT_PATH",
+        "optional": true
+      }
+    ],
+    "secrets": "minio",
+    "static": [
+      {
+        "name": "VT_USE_KVM",
+        "value": "true"
+      },
+      {
+        "name": "VT_OS_IMAGE",
+        "value": "/etc/timezone"
+      },
+      {
+        "name": "VT_TARGET",
+        "value": "x86-64"
+      },
+      {
+        "name": "VT_OS_TYPE",
+        "value": "WRLinuxLTS_19"
+      },
+      {
+        "name": "VT_GIT_BRANCH",
+        "value": "master"
+      },
+      {
+        "name": "VT_GIT_REPO",
+        "value": "https://gitlab.gvr.wrstudio.cloud/digital-twin/studio-simics-scripts"
+      },
+      {
+        "name": "VT_SIM_TYPE",
+        "value": "QEMU"
+      }
+    ]
+  },
+  "location": "aws",
+  "os": "wrlinux",
+  "os_versions": [
+    {
+      "OS": "name"
+    }
+  ],
+  "owner": "wr",
+  "package_version": [
+    {
+      "name": "1000",
+      "version": "1.0"
+    }
+  ],
+  "target": "4409-dashboard-target",
+  "type": "QEMU",
+  "url": "device.registry.gvr.wrstudio.cloud/jwessel-qemu/qemu-alpine:latest",
+  "version": "QEMU 6.0"
+}
