@@ -1,2 +1,2 @@
-DOWNLOADS_CACHE     := /opt/phallsma/yocto/downloads
-SSTATE_MIRROR       := /opt/phallsma/yocto/sstate-mirror
+DOWNLOADS_CACHE     := /opt/phallsma/wrlinux-21/downloads
+SSTATE_MIRROR       := /opt/phallsma/wrlinux-21/sstate-mirror

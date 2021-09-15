@@ -1,1 +1,1 @@
-WRL := /wr/installs/wrl-19-mirror
+WRL := /opt/installs/wrl-21-mirror
