@@ -25,7 +25,7 @@ endif
 RM = $(Q)rm -f
 
 WRL ?= /opt/installs/wrl-21-mirror
-REL ?= WRLINUX_10_21_LTS_RCPL0001
+REL ?= WRLINUX_10_21_LTS_RCPL0004
 
 MACHINES += intel-x86-64
 #MACHINES += qemuarm64
