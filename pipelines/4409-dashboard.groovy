@@ -42,7 +42,7 @@ pipeline {
 		)
 		string(
 			name: 'SSTATE_MIRROR_DIR',
-			defaultValue: '/opt/phallsma/wrlinux-21/sstate-mirror',
+			defaultValue: '/opt/installs/drg/wrlinux-21/sstate_mirror',
 			description: 'Directory for fetching/storing sstate cache'
 		)
 		booleanParam(
@@ -69,13 +69,6 @@ pipeline {
 				sh "make distclean"
 			}
 		}
-/*
-		stage("Git clone project layer") {
-			steps {
-				git branch: "${params.BRANCH}", url: '/opt/installs/repo_mirrors/misc/devices-remote-gui.git'
-			}
-		}
-*/
 		stage("Build images") {
 			steps {
 				sh "make images"

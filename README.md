@@ -50,7 +50,7 @@ WRL := /wr/installs/wrl-19-mirror
 ```bash
 [phallsma@arn-phallsma-l4 device-remote-gui]$ cat userconfig-phallsma.mk 
 DOWNLOADS_CACHE     := /opt/phallsma/yocto/downloads
-SSTATE_MIRROR       := /opt/phallsma/yocto/sstate-mirror
+SSTATE_MIRROR_DIR   := /opt/phallsma/yocto/sstate-mirror
 [phallsma@arn-phallsma-l4 device-remote-gui]$
 ```
 

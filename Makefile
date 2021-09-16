@@ -82,6 +82,12 @@ build/build: build $(LAYERS)
 		source ./oe-init-build-env ; \
 		bitbake-layers add-layer -F $(LAYERS) ; \
 		sed -i /^MACHINE/d conf/local.conf ; \
+                if [ $(SSTATE_MIRROR_DIR) ]; then \
+                        echo "Using sstate cache" ; \
+                        echo "SSTATE_MIRRORS ?= \"file://.* file://$(SSTATE_MIRROR_DIR)/PATH\"" >> conf/local.conf; \
+                else \
+                        echo "Skipping using sstate cache" ; \
+                fi ; \
 	fi
 
 images: build/build
