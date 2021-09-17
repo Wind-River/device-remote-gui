@@ -41,7 +41,7 @@ JS_REL = 9a0c97e935a8bc4e17a62baa7f619ff5aa295742
 LAYERS += $(TOP)/build/layers/meta-javascripts
 
 MI_URL = https://gitlab.com/saxofon/meta-marine-instruments.git
-MI_REL = 074b4f5b919155df2920bdcfb129ab5be6fd5a3d
+MI_REL = 9ab86ccb5f3c7b429badcf8d9563b32c50582a01
 LAYERS += $(TOP)/build/layers/meta-marine-instruments
 
 WRLS_OPTS += --layers meta-chromium
