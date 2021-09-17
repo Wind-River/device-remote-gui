@@ -1,3 +1,6 @@
+# Copyright (c) 2020 Wind River Systems, Inc.
+# SPDX-License-Identifier: BSD-3-Clause
+
 STARTING-URL_pn-wr-kiosk = "http://localhost:80"
 WINDOW-SIZE_pn-wr-kiosk = "1920,1080"
 #KIOSK-MODE-FLAG_append_pn-wr-kiosk = ""
